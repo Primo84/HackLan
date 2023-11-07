@@ -1,0 +1,6 @@
+﻿  Sniffer.cpp
+d:\projekty\hack_lan\sniffer\sniffer\sniffer\sniffer.cpp(377): warning C4390: ';' : empty controlled statement found; is this the intent?
+d:\projekty\hack_lan\sniffer\sniffer\sniffer\sniffer.cpp(100): warning C4101: 'bssid_size' : unreferenced local variable
+     Creating library D:\projekty\Hack_Lan\Sniffer\Sniffer\Debug\Sniffer.lib and object D:\projekty\Hack_Lan\Sniffer\Sniffer\Debug\Sniffer.exp
+     Creating library D:\projekty\Hack_Lan\Sniffer\Sniffer\Debug\Sniffer.lib and object D:\projekty\Hack_Lan\Sniffer\Sniffer\Debug\Sniffer.exp
+  Sniffer.vcxproj -> D:\projekty\Hack_Lan\Sniffer\Sniffer\Debug\Sniffer.exe

@@ -1,0 +1,10 @@
+﻿  hckL.cpp
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(536,6): warning C4101: "RetVal": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(647,6): warning C4101: "CCount": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(668,6): warning C4101: "CCount": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(801,7): warning C4101: "bl": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(798,9): warning C4101: "file": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1106,7): warning C4101: "bl": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1117,9): warning C4101: "Cid": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1103,9): warning C4101: "file": lokalna zmienna, do której nie istnieje odwołanie
+  hckL.vcxproj -> D:\projekty\Hack_Lan\hckLib\hckL\x64\Debug\hckL.lib

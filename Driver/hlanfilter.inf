@@ -1,0 +1,102 @@
+
+[version]
+
+Signature	="$Windows NT$"
+Class 		= NetService
+ClassGUID   	= {4D36E974-E325-11CE-BFC1-08002BE10318}
+Provider 	= %Provider%
+DriverVer	= 12/18/2022,1.0.0.1234
+CatalogFile 	= hacklan.cat
+
+[Manufacturer]
+ %Manufacturer%		= HlanFilter.ndi,NTx86,NTia64,NTarm,NTarm64,NTamd64
+
+[HlanFilter.ndi.NTx86]
+%HlanFilter_Desc%	= HlanFilter.ndi.install,MS_HLAN_FILTER
+
+[HlanFilter.ndi.NTxia64]
+%HlanFilter_Desc%	= HlanFilter.ndi.install,MS_HLAN_FILTER
+
+[HlanFilter.ndi.NTamd64]
+%HlanFilter_Desc%	= HlanFilter.ndi.install,MS_HLAN_FILTER
+
+[HlanFilter.ndi.NTarm]
+%HlanFilter_Desc%	= HlanFilter.ndi.install,MS_HLAN_FILTER
+
+[HlanFilter.ndi.NTarm64]
+%HlanFilter_Desc%	= HlanFilter.ndi.install,MS_HLAN_FILTER
+
+[HlanFilter.ndi.install]
+Characteristics	 	=0x40000
+NetCfgInstanceId	="{72EFAC82-649B-4B42-8DEC-F9B015EFC62F}"
+AddReg             	= HlanFilter.AddReg
+CopyFiles		= HlanFilter.CopyFiles
+
+[HlanFilter.AddReg]
+HKR, Ndi,FilterType,0x00010001,0x00000001
+HKR, Ndi,HelpText,,%Hlan_HelpText%
+HKR, Ndi,FilterClass,, compression
+HKR, Ndi,Service,,"FHacklan"
+HKR, Ndi,CoServices,0x00010000,"FHacklan"
+HKR, Ndi\Interfaces,UpperRange,,"noupper"
+HKR, Ndi\Interfaces,LowerRange,,"nolower"
+HKR, Ndi\Interfaces, FilterMediaTypes,,"ethernet,wan,tunnel,ppip,wlan"
+HKR, Ndi,FilterRunType, 0x00010001, 2
+
+[HlanFilter.ndi.Services]
+AddService         = FHacklan,HlanFilter.ndi.AddService
+
+[HlanFilter.ndi.AddService]
+DisplayName     = %HlanFilter_Desc%
+ServiceType     = 1 ;SERVICE_KERNEL_DRIVER
+StartType       = 1 ;SERVICE_SYSTEM_START
+ErrorControl    = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary   = %12%\FHacklan.sys
+LoadOrderGroup  = NDIS
+Description     = %HlanFilter_Desc%
+AddReg          = HlanFilter.Params.reg
+
+[HlanFilter.ndi.Remove.Services]
+DelService=FHacklan,0x200
+
+[Common.Params.reg]
+
+HKR, FilterDriverParams\DriverParam,            ParamDesc,      , "Driverparam for FHacklan"
+HKR, FilterDriverParams\DriverParam,            default,        , "5"
+HKR, FilterDriverParams\DriverParam,            type,           , "int"
+
+HKR, FilterAdapterParams\AdapterParam,          ParamDesc,      , "Adapterparam for FHacklan"
+HKR, FilterAdapterParams\AdapterParam,          default,        , "10"
+HKR, FilterAdapterParams\AdapterParam,          type,           , "int"
+
+HKR, FilterInstanceParams\InstanceParam,        ParamDesc,      , "Instance param for FHacklan"
+HKR, FilterInstanceParams\InstanceParam,        default,        , "15"
+HKR, FilterInstanceParams\InstanceParam,        type,           , "int"
+
+
+
+[SourceDisksNames]
+1			= %Disk_Desc%,"",,
+
+[SourceDisksFiles]
+FHacklan.sys	 	= 1
+
+
+[DestinationDirs]
+DefaultDestDir		= 12
+HlanFilter.CopyFiles 	= 12
+
+
+
+[HlanFilter.CopyFiles]
+FHacklan.sys,,,16
+
+
+[Strings]
+Provider		= "Primo"
+Manufacturer		= "Primo Programmer"
+HlanFilter_Desc		= "Hacklan Filter Driver"
+Disk_Desc		= "Hacklan Disk Installation"
+Hlan_HelpText		= "Hacklan Network Monitor"
+
+

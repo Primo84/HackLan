@@ -1,0 +1,7 @@
+﻿  Building 'PDriver_Lan' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Lan.c
+  LanDrv.c
+  Generowanie kodu...
+  Driver_Lan.vcxproj -> D:\projekty\Hack_Lan\PDriver_Lan\x64\Debug\PHacklan.sys
+  Inf2Cat task was skipped as there were no inf files to process
+  

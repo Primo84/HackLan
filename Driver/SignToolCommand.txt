@@ -1,0 +1,2 @@
+signtool sign /v /s PrivateCertStores /n MyCert /t http://timestamp.digicert.com FHacklan.sys
+inf2cat /driver:D:\projekty\hack_lan\driver /os:7_X64

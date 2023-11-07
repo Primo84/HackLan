@@ -1,0 +1,7 @@
+﻿  Building 'FDriver_Lan' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Filter.c
+  LanDrv.c
+  Generowanie kodu...
+  Driver_Lan.vcxproj -> D:\projekty\Hack_Lan\FDriver_Lan\x64\Debug\FHacklan.sys
+  Inf2Cat task was skipped as there were no inf files to process
+  

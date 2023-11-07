@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Driver_Lan", "Driver_Lan\Driver_Lan.vcxproj", "{66DBACE8-4EBC-4B76-8C99-060DB81B9843}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66DBACE8-4EBC-4B76-8C99-060DB81B9843}.Debug|Win32.ActiveCfg = Debug|Win32
+		{66DBACE8-4EBC-4B76-8C99-060DB81B9843}.Debug|Win32.Build.0 = Debug|Win32
+		{66DBACE8-4EBC-4B76-8C99-060DB81B9843}.Debug|x64.ActiveCfg = Debug|x64
+		{66DBACE8-4EBC-4B76-8C99-060DB81B9843}.Debug|x64.Build.0 = Debug|x64
+		{66DBACE8-4EBC-4B76-8C99-060DB81B9843}.Release|Win32.ActiveCfg = Release|Win32
+		{66DBACE8-4EBC-4B76-8C99-060DB81B9843}.Release|Win32.Build.0 = Release|Win32
+		{66DBACE8-4EBC-4B76-8C99-060DB81B9843}.Release|x64.ActiveCfg = Release|x64
+		{66DBACE8-4EBC-4B76-8C99-060DB81B9843}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC143E0B-E0C2-4BEC-8042-2789229E0B3A}
+	EndGlobalSection
+EndGlobal

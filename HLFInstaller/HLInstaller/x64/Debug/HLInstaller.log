@@ -1,0 +1,5 @@
+﻿  Building 'HLFInstaller' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  HLI.c
+  HLInstaller.vcxproj -> D:\projekty\Hack_Lan\HLFInstaller\x64\Debug\HLFInstaller.sys
+  Inf2Cat task was skipped as there were no inf files to process
+  

@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: Katalog pośredni (Debug\) zawiera pliki udostępnione z innego projektu (Driver_Lan.vcxproj). Może to spowodować niepoprawne zachowanie podczas oczyszczania i ponownej kompilacji.
+  Filter.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\ntdef.h(197,1): fatal error C1189: #error:  "No Target Architecture"
+  LanDrv.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\shared\ntdef.h(197,1): fatal error C1189: #error:  "No Target Architecture"
+  Generowanie kodu...

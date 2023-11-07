@@ -1,0 +1,93 @@
+
+[version]
+
+Signature			= "$Windows NT$"
+Class				= NetTrans
+ClassGuid			= {4D36E975-E325-11CE-BFC1-08002BE10318}
+Provider 			= %Provaider%
+DriverVer			= 02/18/2023,1.0.0.1
+CatalogFile			= hacklan.cat
+
+
+[Manufacturer]
+%Manufacturer%		= HlanProtocol.ndi,NTx86,NTia64,NTarm,NTarm64,NTamd64
+
+[HlanProtocol.ndi.NTx86]
+%HlanProtocol_Desc%	= HlanProtocol.ndi.install,MS_HLAN_PROT
+
+
+[HlanProtocol.ndi.NTxia64]
+%HlanProtocol_Desc%	= HlanProtocol.ndi.install,MS_HLAN_PROT
+
+
+[HlanProtocol.ndi.NTamd64]
+%HlanProtocol_Desc%	= HlanProtocol.ndi.install,MS_HLAN_PROT
+
+
+[HlanProtocol.ndi.NTarm]
+%HlanProtocol_Desc%	= HlanProtocol.ndi.install,MS_HLAN_PROT
+
+
+[HlanProtocol.ndi.NTarm64]
+%HlanProtocol_Desc%	= HlanProtocol.ndi.install,MS_HLAN_PROT
+
+
+[HlanProtocol.ndi.install]
+Characteristics 	= 0x0
+AddReg 			= HlanProtocol.AddReg
+CopyFiles		= HlanProtocol.CopyFiles
+
+
+
+[HlanProtocol.AddReg]
+HKR, Ndi\Interfaces, UpperRange, 0, "noupper"
+HKR, Ndi\Interfaces, LowerRange, 0, "ndis5"
+HKR, Ndi,Service,,"PHacklan"
+HKR, Ndi, HelpText, 0, %Hlan_HelpText%
+
+[HlanProtocol.ndi.Service]
+AddService	= PHacklan, 2,HlanProtocol.AddService, HlanProtocol.AddEventLog
+
+[HlanProtocol.AddService]
+DisplayName = %HlanProtocol_Desc%
+ServiceType = 1 ;SERVICE_KERNEL_DRIVER
+StartType = 1 ;SERVICE_DEMAND_START
+ErrorControl = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\PHacklan.sys
+LoadOrderGroup = NDIS
+ 
+[HlanProtocol.AddEventLog]
+AddReg = HlanProtocol.AddEventLog.reg
+ 
+[HlanProtocol.AddEventLog.reg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\netevent.dll"
+HKR,,TypesSupported,0x00010001,7
+
+
+[HlanProtocol.ndi.Remove.Services]
+DelService 	= PHacklan ,0x200
+
+
+[SourceDisksNames]
+1	= %Disk_Desc%,"",,
+
+
+[SourceDisksFiles]
+PHacklan.sys			= 1
+
+[DestinationDirs]
+DefaultDestDir 			= 12
+HlanProtocol.CopyFiles		= 12
+
+
+[HlanProtocol.CopyFiles]
+PHacklan.sys,,,16
+
+
+
+[Strings]
+Provider		= "Primo"
+Manufacturer		= "Primo Programmer"
+HlanProtocol_Desc	= "Hacklan Protocol Driver"
+Disk_Desc		= "Hacklan Disk Installation"
+Hlan_HelpText		= "Hacklan Lan Protocol"
