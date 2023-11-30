@@ -146,56 +146,59 @@ DWORD WINAPI MPFunR(PVOID p)
 		UMP = MiniP;
 		for (i = 0; i < MPCount; i++)
 		{
-			if (UMP->RecvHooked == 1)
+			if (UMP != NULL)
 			{
-				memset(&MP_RPacket, 0, sizeof(RecvPack));
-				MP_RPacket.odebrane = 0;
-
-				WaitForSingleObject(MPEvent_h, INFINITE);
-				
-				memset(&OverL, 0, sizeof(OVERLAPPED));
-				OverL.Offset = UMP->licznik;
-				w = (WORD*)&OverL.OffsetHigh;
-				*w = (WORD)UMP->Index;
-				w++;
-				*w = (WORD)Operacja;
-				
-				ret = 0;
-				dev = CreateFileW(fdevice_name, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, NULL);
-
-				if (dev == INVALID_HANDLE_VALUE)
+				if (UMP->RecvHooked == 1)
 				{
+					memset(&MP_RPacket, 0, sizeof(RecvPack));
+					MP_RPacket.odebrane = 0;
+
+					WaitForSingleObject(MPEvent_h, INFINITE);
+
+					memset(&OverL, 0, sizeof(OVERLAPPED));
+					OverL.Offset = UMP->licznik;
+					w = (WORD*)&OverL.OffsetHigh;
+					*w = (WORD)UMP->Index;
+					w++;
+					*w = (WORD)Operacja;
+
+					ret = 0;
+					dev = CreateFileW(fdevice_name, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, NULL);
+
+					if (dev == INVALID_HANDLE_VALUE)
+					{
+						SetEvent(MPEvent_h);
+						if (MiniportSendHandled == 0)
+						{
+							CloseHandle(MPEvent_h);
+							MPEvent_h = NULL;
+						}
+						free(MiniP);
+						MiniportRecHandled = 0;
+						return 1;
+					}
+
+					bl = ReadFile(dev, &MP_RPacket, sizeof(RecvPack), &ret, &OverL);
+
+					CloseHandle(dev);
+					dev = NULL;
+
 					SetEvent(MPEvent_h);
-					if (MiniportSendHandled == 0)
+
+					if (bl && MP_RPacket.odebrane > 0)
 					{
-						CloseHandle(MPEvent_h);
-						MPEvent_h = NULL;
-					}
-					free(MiniP);
-					MiniportRecHandled = 0;
-					return 1;
-				}
+						if (UMP->licznik >= PACKET_COUNT) UMP->licznik = 0;
 
-				bl = ReadFile(dev, &MP_RPacket, sizeof(RecvPack), &ret, &OverL);
+						UMP->licznik = UMP->licznik + MP_RPacket.odebrane;
 
-				CloseHandle(dev);
-				dev = NULL;
-
-				SetEvent(MPEvent_h);
-
-				if (bl && MP_RPacket.odebrane > 0)
-				{
-					if (UMP->licznik >= PACKET_COUNT) UMP->licznik = 0;
-
-					UMP->licznik = UMP->licznik + MP_RPacket.odebrane;
-
-					for (i = 0; i < MP_RPacket.odebrane; i++)
-					{
-						(*RecvH)(MP_RPacket.EHead[i]);
+						for (i = 0; i < MP_RPacket.odebrane; i++)
+						{
+							(*RecvH)(MP_RPacket.EHead[i]);
+						}
 					}
 				}
+				if (i < MPCount - 1) UMP++;
 			}
-			if (i < MPCount - 1) UMP++;
 		}
 
 	} while (MPclosedR == 0);
@@ -257,56 +260,59 @@ DWORD WINAPI MPFunS(PVOID p)
 		UMP = MiniP;
 		for (i = 0; i < MPCount; i++)
 		{
-			if (UMP->SendHooked == 1)
+			if (UMP != NULL)
 			{
-				memset(&MP_SPacket, 0, sizeof(RecvPack));
-				MP_SPacket.odebrane = 0;
-
-				WaitForSingleObject(MPEvent_h, INFINITE);
-
-				memset(&OverL, 0, sizeof(OVERLAPPED));
-				OverL.Offset = UMP->licznik;
-				w = (WORD*)&OverL.OffsetHigh;
-				*w = (WORD)UMP->Index;
-				w++;
-				*w = (WORD)Operacja;
-
-				ret = 0;
-				dev = CreateFileW(fdevice_name, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, NULL);
-
-				if (dev == INVALID_HANDLE_VALUE)
+				if (UMP->SendHooked == 1)
 				{
+					memset(&MP_SPacket, 0, sizeof(RecvPack));
+					MP_SPacket.odebrane = 0;
+
+					WaitForSingleObject(MPEvent_h, INFINITE);
+
+					memset(&OverL, 0, sizeof(OVERLAPPED));
+					OverL.Offset = UMP->licznik;
+					w = (WORD*)&OverL.OffsetHigh;
+					*w = (WORD)UMP->Index;
+					w++;
+					*w = (WORD)Operacja;
+
+					ret = 0;
+					dev = CreateFileW(fdevice_name, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, NULL);
+
+					if (dev == INVALID_HANDLE_VALUE)
+					{
+						SetEvent(MPEvent_h);
+						if (MiniportRecHandled == 0)
+						{
+							CloseHandle(MPEvent_h);
+							MPEvent_h = NULL;
+						}
+						free(MiniP);
+						MiniportSendHandled = 0;
+						return 1;
+					}
+
+					bl = ReadFile(dev, &MP_SPacket, sizeof(RecvPack), &ret, &OverL);
+
+					CloseHandle(dev);
+					dev = NULL;
+
 					SetEvent(MPEvent_h);
-					if (MiniportRecHandled == 0)
+
+					if (bl && MP_SPacket.odebrane > 0)
 					{
-						CloseHandle(MPEvent_h);
-						MPEvent_h = NULL;
-					}
-					free(MiniP);
-					MiniportSendHandled = 0;
-					return 1;
-				}
+						if (UMP->licznik >= PACKET_COUNT) UMP->licznik = 0;
 
-				bl = ReadFile(dev, &MP_SPacket, sizeof(RecvPack), &ret, &OverL);
+						UMP->licznik = UMP->licznik + MP_SPacket.odebrane;
 
-				CloseHandle(dev);
-				dev = NULL;
-
-				SetEvent(MPEvent_h);
-
-				if (bl && MP_SPacket.odebrane > 0)
-				{
-					if (UMP->licznik >= PACKET_COUNT) UMP->licznik = 0;
-
-					UMP->licznik = UMP->licznik + MP_SPacket.odebrane;
-
-					for (i = 0; i < MP_SPacket.odebrane; i++)
-					{
-						(*RecvH)(MP_SPacket.EHead[i]);
+						for (i = 0; i < MP_SPacket.odebrane; i++)
+						{
+							(*RecvH)(MP_SPacket.EHead[i]);
+						}
 					}
 				}
+				if (i < MPCount - 1) UMP++;
 			}
-			if (i < MPCount - 1) UMP++;
 		}
 
 	} while (MPclosedS == 0);
