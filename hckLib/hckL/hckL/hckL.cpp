@@ -20,7 +20,6 @@ int opened = 0;
 int MiniportInited = 0;
 int MiniportRecHandled = 0;
 int MiniportSendHandled = 0;
-SendPack SPack;
 HANDLE Event_h = NULL;
 HANDLE MPEvent_h = NULL;
 OVERLAPPED OverL;

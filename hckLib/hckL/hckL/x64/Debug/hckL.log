@@ -1,10 +1,10 @@
 ﻿  hckL.cpp
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(542,6): warning C4101: "RetVal": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(653,6): warning C4101: "CCount": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(674,6): warning C4101: "CCount": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(807,7): warning C4101: "bl": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(804,9): warning C4101: "file": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1112,7): warning C4101: "bl": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1123,9): warning C4101: "Cid": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1109,9): warning C4101: "file": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(541,6): warning C4101: "RetVal": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(652,6): warning C4101: "CCount": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(673,6): warning C4101: "CCount": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(806,7): warning C4101: "bl": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(803,9): warning C4101: "file": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1111,7): warning C4101: "bl": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1122,9): warning C4101: "Cid": lokalna zmienna, do której nie istnieje odwołanie
+D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1108,9): warning C4101: "file": lokalna zmienna, do której nie istnieje odwołanie
   hckL.vcxproj -> D:\projekty\Hack_Lan\hckLib\hckL\x64\Debug\hckL.lib
