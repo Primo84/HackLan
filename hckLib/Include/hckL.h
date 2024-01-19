@@ -376,6 +376,23 @@ extern "C"
 
 
 
+/*
+				Funkcja wysy³a surowy pakiet. Mo¿na u¿yæ karty ethernet oraz wifi
+				Nale¿y pamiêtaæ aby ramka ethernethowa by³a prawid³owo sformatowana w standardzie 802.3
+				Przy wysy³aniu za pomoc¹ karty wifi nale¿y podaæ prawid³owy ¿ród³owy adres MAC karty sieciowej.
+
+
+				Zwraca : 
+
+					0	-	Powodzenie
+				   -1	-	Adapter == NULL
+					1	-	Jeœli nie mo¿na pobraæ uchwytu sterownika protoko³u
+					2	-	Za ma³a lub za du¿a wartoœæ DataSize albo Packet == NULL
+
+
+*/
+
+
 	__declspec(dllexport) int SendFramePacket(Dev_Lan *Adapter, unsigned char *Packet, int DataSize);
 
 	/*
