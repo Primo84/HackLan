@@ -1,10 +1,15 @@
 ﻿  hckL.cpp
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(542,6): warning C4101: "RetVal": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(653,6): warning C4101: "CCount": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(674,6): warning C4101: "CCount": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(807,7): warning C4101: "bl": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(804,9): warning C4101: "file": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1112,7): warning C4101: "bl": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1123,9): warning C4101: "Cid": lokalna zmienna, do której nie istnieje odwołanie
-D:\projekty\Hack_Lan\hckLib\hckL\hckL\hckL.cpp(1109,9): warning C4101: "file": lokalna zmienna, do której nie istnieje odwołanie
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(549): warning C4101: 'RetVal' : unreferenced local variable
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(648): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(670): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(660): warning C4101: 'CCount' : unreferenced local variable
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(691): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(681): warning C4101: 'CCount' : unreferenced local variable
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(718): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(735): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(811): warning C4101: 'file' : unreferenced local variable
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(814): warning C4101: 'bl' : unreferenced local variable
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(1116): warning C4101: 'file' : unreferenced local variable
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(1119): warning C4101: 'bl' : unreferenced local variable
+d:\projekty\hack_lan\hcklib\hckl\hckl\hckl.cpp(1130): warning C4101: 'Cid' : unreferenced local variable
   hckL.vcxproj -> D:\projekty\Hack_Lan\hckLib\hckL\Debug\hckL.lib

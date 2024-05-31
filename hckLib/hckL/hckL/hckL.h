@@ -236,7 +236,7 @@ typedef struct Device_Lan
 	*/
 
 
-typedef int  RecivePacketHandler(EHeader EthernetFrame);
+typedef int  RecivePacketHandler(EHeader EthernetFrame, BOOL is_buffered);
 
 typedef struct MP_SendRecive
 {

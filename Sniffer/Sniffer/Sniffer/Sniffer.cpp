@@ -191,7 +191,7 @@ int main(int argc, char* argv[])
 					karta = 0;
 					printf("Wybierz numer karty lub wprowadz wartosc 0 zeby anulowac : ");
 					memset(karta_c, 0, 10);
-					scanf_s("%s", karta_c, 10);
+					scanf_s("%s", karta_c);
 					karta = atoi(karta_c);
 					if (karta > LanD[0].NetCardsCount || karta < 0)
 					{
@@ -312,7 +312,7 @@ int main(int argc, char* argv[])
 					karta = 0;
 					printf("Wybierz numer karty lub wprowadz wartosc 0 zeby anulowac : ");
 					memset(karta_c, 0, 10);
-					scanf_s("%s", karta_c, 10);
+					scanf_s("%s", karta_c);
 					karta = atoi(karta_c);
 					if (karta > LanD[0].NetCardsCount || karta < 0)
 					{

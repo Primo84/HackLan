@@ -36,6 +36,7 @@ DWORD WINAPI Fun(PVOID p)
 	int i;
 	RecivePacketHandler* RecvH;
 	PacketInfo PInfo;
+	BOOL isBuffered = TRUE;
 
 
 	memset(&Packet, 0, sizeof(RecvPack));
@@ -86,10 +87,11 @@ DWORD WINAPI Fun(PVOID p)
 
 			for (i = 0; i < Packet.odebrane; i++)
 			{
-				(*RecvH)(Packet.EHead[i]);
+				(*RecvH)(Packet.EHead[i], isBuffered);
 			}
 		}
 
+		isBuffered == TRUE ? isBuffered = FALSE : 0;
 
 	} while (closed == 0);
 
@@ -117,6 +119,7 @@ DWORD WINAPI MPFunR(PVOID p)
 	UserMiniport* UMP, *MiniP;
 	WORD* w;
 	WORD Operacja;
+	BOOL isBuffered = TRUE;
 
 	MPCount = MPSR.MiniP->miniportCount;
 	RecvH = MPSR.Recv;
@@ -192,13 +195,15 @@ DWORD WINAPI MPFunR(PVOID p)
 
 						for (i = 0; i < MP_RPacket.odebrane; i++)
 						{
-							(*RecvH)(MP_RPacket.EHead[i]);
+							(*RecvH)(MP_RPacket.EHead[i], isBuffered);
 						}
 					}
 				}
 				if (i < MPCount - 1) UMP++;
 			}
 		}
+
+		isBuffered == TRUE ? isBuffered = FALSE : 0;
 
 	} while (MPclosedR == 0);
 
@@ -232,6 +237,7 @@ DWORD WINAPI MPFunS(PVOID p)
 	UserMiniport* UMP, * MiniP;
 	WORD* w;
 	WORD Operacja;
+	BOOL isBuffered = TRUE;
 
 	MPCount = MPSR.MiniP->miniportCount;
 	RecvH = MPSR.Recv;
@@ -306,13 +312,15 @@ DWORD WINAPI MPFunS(PVOID p)
 
 						for (i = 0; i < MP_SPacket.odebrane; i++)
 						{
-							(*RecvH)(MP_SPacket.EHead[i]);
+							(*RecvH)(MP_SPacket.EHead[i], isBuffered);
 						}
 					}
 				}
 				if (i < MPCount - 1) UMP++;
 			}
 		}
+
+		isBuffered == TRUE ? isBuffered = FALSE : 0;
 
 	} while (MPclosedS == 0);
 
